@@ -2,6 +2,8 @@
 
 This project contains UI code for the 'VoIPTris' test assignment.
 
+![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
+
 ## Building
 
 Building the project requires JDK11 and Maven 3.6.1. Later versions *may* work but this is what we used during development.
