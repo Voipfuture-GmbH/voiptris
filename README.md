@@ -1,4 +1,4 @@
-# voiptris-core
+# voiptris
 
 This project contains UI code for the 'VoIPTris' test assignment.
 
