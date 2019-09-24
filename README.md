@@ -2,7 +2,7 @@
 
 This project contains UI code for the 'VoIPTris' test assignment.
 
-![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
+![Screenshot](https://github.com/Voipfuture-GmbH/voiptris-core/blob/master/screenshot.png)
 
 ## Building
 
