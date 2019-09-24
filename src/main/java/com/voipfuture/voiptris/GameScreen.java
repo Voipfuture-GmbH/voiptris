@@ -108,14 +108,55 @@ public class GameScreen extends JFrame
             g.fillRect( topLeftX, topLeftY, playingFieldWidth, playingFieldHeight );
 
             // render playing field
+            final int cellBorder = 2;
+
+            final int[] px = new int[4];
+            final int[] py = new int[4];
+
             for (int y = topLeftY, ty = 0; ty < getPlayingField().height() ; y += cellWidth, ty++)
             {
                 for (int x = topLeftX, tx = 0; tx < getPlayingField().width(); x += cellWidth, tx++)
                 {
                     final Optional<TileType> tileId = getPlayingField().getTileType( tx,ty );
-                    if ( tileId.isPresent() ) {
-                        g.setColor( COLORS.get(tileId.get()) );
+                    if ( tileId.isPresent() )
+                    {
+                        final Color color = COLORS.get(tileId.get());
+
+                        // fill inner
+                        g.setColor(color);
                         g.fillRect( x,y,cellWidth, cellWidth);
+
+                        // fill top
+                        px[0] = x; py[0] = y;
+                        px[1] = x+cellWidth; py[1] = y;
+                        px[2] = x+cellWidth-cellBorder; py[2] =y+cellBorder;
+                        px[3] = x+cellBorder; py[3] = y+cellBorder;
+                        g.setColor( color.brighter().brighter() );
+                        g.fillPolygon(px,py,4);
+
+                        // fill left
+                        px[0] = x; py[0] = y;
+                        px[1] = x+cellBorder; py[1] = y+cellBorder;
+                        px[2] = x+cellBorder; py[2] = y+cellWidth-cellBorder;
+                        px[3] = x; py[3] = y+cellWidth;
+                        g.setColor( color.darker() );
+                        g.fillPolygon(px,py,4);
+
+                        // fill right
+                        px[0] = x+cellWidth; py[0] = y;
+                        px[1] = x+cellWidth; py[1] = y+cellWidth;
+                        px[2] = x+cellWidth-cellBorder; py[2] = y+cellWidth-cellBorder;
+                        px[3] = x+cellWidth-cellBorder; py[3] = y+cellBorder;
+                        g.setColor( color.darker() );
+                        g.fillPolygon(px,py,4);
+
+                        // fill bottom
+                        px[0] = x+cellBorder; py[0] = y+cellWidth-cellBorder;
+                        px[1] = x+cellWidth-cellBorder; py[1] = y+cellWidth-cellBorder;
+                        px[2] = x+cellWidth; py[2] = y+cellWidth;
+                        px[3] = x; py[3] = y+cellWidth;
+                        g.setColor( color.darker().darker() );
+                        g.fillPolygon(px,py,4);
                     }
                 }
             }
@@ -123,13 +164,13 @@ public class GameScreen extends JFrame
             if ( showGrid && controller.getState() != GameState.GAME_OVER )
             {
                 g.setColor(Color.WHITE);
-                for (int py = topLeftY, y = 0; y < getPlayingField().height() ; py+= cellWidth,y++)
+                for (int gridY = topLeftY, y = 0; y < getPlayingField().height() ; gridY+= cellWidth,y++)
                 {
-                    g.drawLine( topLeftX, py, bottomRightX, py );
+                    g.drawLine( topLeftX, gridY, bottomRightX, gridY );
                 }
-                for (int px = topLeftX, x = 0; x < getPlayingField().width(); px += cellWidth, x++)
+                for (int gridX = topLeftX, x = 0; x < getPlayingField().width(); gridX += cellWidth, x++)
                 {
-                    g.drawLine(px,topLeftY,px,bottomRightY);
+                    g.drawLine(gridX,topLeftY,gridX,bottomRightY);
                 }
             }
 
