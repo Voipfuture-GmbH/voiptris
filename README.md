@@ -1,6 +1,6 @@
 # voiptris
 
-This project contains UI code for the 'VoIPTris' test assignment.
+This project contains UI code for the 'VoIPTris' test assignment. The task description can be found inside the /docs folder.
 
 ![Screenshot](https://github.com/Voipfuture-GmbH/voiptris/blob/master/screenshot.png)
 
