@@ -14,4 +14,4 @@ You need to have a class implementing the com.voipfuture.voiptris.api.IGameContr
 
 You can then start the game by running
 
-    java -cp target/voiptris-core.jar:<YOUR JAR> com.voipfuture.voiptris.Main
+    java -cp target/voiptris-core.jar:<YOUR JAR/CLASSES> com.voipfuture.voiptris.Main
