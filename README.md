@@ -2,7 +2,7 @@
 
 This project contains UI code for the 'VoIPTris' test assignment.
 
-![Screenshot](https://github.com/Voipfuture-GmbH/voiptris-core/blob/master/screenshot.png)
+![Screenshot](https://github.com/Voipfuture-GmbH/voiptris/blob/master/screenshot.png)
 
 ## Building
 
