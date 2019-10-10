@@ -10,7 +10,7 @@ Building the project requires JDK11 and Maven 3.6.1. Later versions *may* work b
 
 ## Running
 
-You need to have a class implementing the com.voipfuture.voiptris.api.IGameController interface that is named "GameController" inside the default package namespace.
+You need to have a class implementing the com.voipfuture.voiptris.api.IGameController interface that is named "GameController" inside the Java default package namespace. The class needs to have a public constructor that takes two 'int' arguments, the width and height of the playing field to use while playing.
 
 You can then start the game by running
 
