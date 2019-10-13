@@ -15,6 +15,8 @@
  */
 package com.voipfuture.voiptris.api;
 
+import java.util.Optional;
+
 /**
  * Responsible for controlling the game.
  *
@@ -74,4 +76,13 @@ public interface IGameController
      * @return
      */
     IPlayingField getPlayingField();
+
+    /**
+     *
+     * @param x
+     * @param y
+     * @return
+     */
+    Optional<TileType> getCurrentScreenState(int x, int y);
+
 }

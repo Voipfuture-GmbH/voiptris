@@ -13,12 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.voipfuture.voiptris;
+package com.voipfuture.voiptris.impl;
 
 import com.voipfuture.voiptris.api.IUserInputProvider;
 import com.voipfuture.voiptris.api.UserInput;
 
-import java.awt.Component;
+import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;

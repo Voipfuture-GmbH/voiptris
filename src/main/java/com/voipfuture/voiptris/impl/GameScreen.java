@@ -13,21 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.voipfuture.voiptris;
+package com.voipfuture.voiptris.impl;
 
-import com.voipfuture.voiptris.api.GameState;
-import com.voipfuture.voiptris.api.IGameController;
-import com.voipfuture.voiptris.api.IPlayingField;
-import com.voipfuture.voiptris.api.IUserInputProvider;
-import com.voipfuture.voiptris.api.TileType;
+import com.voipfuture.voiptris.api.*;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.Graphics;
-import java.awt.Toolkit;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.geom.Rectangle2D;
 import java.util.Map;
 import java.util.Optional;
@@ -50,7 +41,8 @@ public class GameScreen extends JFrame
                     TileType.TYPE_3,new Color(240,240,0),
                     TileType.TYPE_4,new Color(0,240,0),
                     TileType.TYPE_5,new Color(160,0,240),
-                    TileType.TYPE_6,new Color(240,0,0)
+                    TileType.TYPE_6,new Color(240,0,0),
+                    TileType.TYPE_NONE,new Color(0,0,0)
                     );
 
     public GameScreen(IGameController controller)
@@ -118,7 +110,7 @@ public class GameScreen extends JFrame
                 for (int x = topLeftX, tx = 0; tx < getPlayingField().width(); x += cellWidth, tx++)
                 {
                     final Optional<TileType> tileId = getPlayingField().getTileType( tx,ty );
-                    if ( tileId.isPresent() )
+                    if ( tileId.isPresent() && !tileId.get().equals(TileType.TYPE_NONE) )
                     {
                         final Color color = COLORS.get(tileId.get());
 

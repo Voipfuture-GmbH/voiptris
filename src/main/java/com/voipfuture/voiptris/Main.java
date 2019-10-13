@@ -16,16 +16,19 @@
 package com.voipfuture.voiptris;
 
 import com.voipfuture.voiptris.api.IGameController;
+import com.voipfuture.voiptris.impl.GameScreen;
 
-import javax.swing.SwingUtilities;
-import javax.swing.Timer;
+import javax.swing.*;
 
 public class Main
 {
     public static void main(String[] args) throws Exception
     {
         final Object[] constructorArgs = {10,20}; // width,height
-        final IGameController controller = (IGameController) Class.forName("GameController").getConstructor(Integer.TYPE, Integer.TYPE).newInstance(constructorArgs);
+        final IGameController controller = (IGameController)
+                Class.forName("com.voipfuture.voiptris.impl.GameController")
+                        .getConstructor(Integer.TYPE, Integer.TYPE).newInstance(constructorArgs);
+
         SwingUtilities.invokeAndWait( () ->
         {
             final GameScreen screen = new GameScreen( controller );

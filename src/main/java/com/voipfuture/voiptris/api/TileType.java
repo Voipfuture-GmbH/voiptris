@@ -26,5 +26,6 @@ public enum TileType
     TYPE_3,
     TYPE_4,
     TYPE_5,
-    TYPE_6
+    TYPE_6,
+    TYPE_NONE // Default Tile (Black)
 }
